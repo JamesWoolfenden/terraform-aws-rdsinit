@@ -1,0 +1,7 @@
+*.pem
+.terraform/
+*.zip
+*.tfstate
+*.backup
+node_modules/
+package-lock.json
