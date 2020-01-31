@@ -10,7 +10,7 @@ resource "aws_lambda_function" "rds_setup" {
   function_name    = "rds-setup"
   handler          = "index.handler"
   filename         = "./rds_setup.zip"
-  #source_code_hash = filebase64(file("./rds_setup.zip"))
+  source_code_hash = data.archive_file.rds_setup_zip.output_base64sha256
 
   role    = aws_iam_role.rds_internal_lambda.arn
   runtime = "nodejs12.x"

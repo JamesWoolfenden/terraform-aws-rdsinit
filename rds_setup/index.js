@@ -1,7 +1,7 @@
 // For rds_setup/index.js
 const fs = require('fs'),
       pg = require('pg');
-
+  
 exports.handler = async (event, context) => {
   const record = JSON.parse(event.Records[0].Sns.Message);
   console.log(record);
