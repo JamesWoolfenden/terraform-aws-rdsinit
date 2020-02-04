@@ -3,6 +3,7 @@ const fs = require('fs'),
       pg = require('pg');
   
 exports.handler = async (event, context) => {
+
   console.log(event);
   console.log(event.Records[0].Sns);
   
@@ -19,18 +20,8 @@ exports.handler = async (event, context) => {
       rejectUnauthorized: false,
       cert:               fs.readFileSync("./rds-cert.pem").toString()
     }
-  }
-  
-  var credentials = {
-    user:     "postgres",
-    host:     "authentic.cwpvtuguiyxl.us-west-2.rds.amazonaws.com",
-    port:     "5432",
-    ssl:      {
-      rejectUnauthorized: false,
-      cert:               fs.readFileSync("./rds-cert.pem").toString()
-    }
   };
-  
+
 
   var sql=fs.readFileSync("./invoke.sql").toString();
   var createdb=fs.readFileSync("./createdb.sql").toString();
@@ -39,10 +30,17 @@ exports.handler = async (event, context) => {
   const pgClient = new pg.Client(credentials);
 
   await pgClient.connect();
-    
   var dbresults = await pgClient.query(createdb);
-  var results = await pgClient.query(sql);
   await pgClient.end();
   console.log(dbresults);
+  
+  
+  //
+  // need to switch dbs
+  credentials.database="authentic";
+  const pgClientMain = new pg.Client(credentials);
+  await pgClientMain.connect();
+  var results = await pgClientMain.query(sql);
+  await pgClientMain.end();
   console.log(results);
 };
