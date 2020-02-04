@@ -23,8 +23,13 @@ resource "aws_lambda_function" "rds_setup" {
 
   environment {
     variables = {
-      PGPASSWORD = var.database_password
-      SQL_SCRIPT = replace(trimspace(data.template_file.sql_script.rendered), "/\n/", " ")
+      BUCKET             = aws_s3_bucket.postgres.id
+      DB_PASSWORD_PATH   = var.db_password_path
+      QUERY_COMMANDS_KEY = tolist(fileset(path.module, "postgres/*.sql"))[0]
+      TABLE_NAME         = var.table_name
     }
   }
+  tags = var.common_tags
 }
+
+

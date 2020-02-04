@@ -21,4 +21,6 @@ resource "aws_lambda_function" "rds_creation" {
       SNS_TOPIC_ARN = aws_sns_topic.internal.arn
     }
   }
+
+  tags = var.common_tags
 }

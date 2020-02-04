@@ -5,4 +5,5 @@ resource "aws_db_event_subscription" "creation" {
   sns_topic        = aws_sns_topic.rds.arn
   source_type      = "db-instance"
   event_categories = ["creation"]
+  tags             = var.common_tags
 }
