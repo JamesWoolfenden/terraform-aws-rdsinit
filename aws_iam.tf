@@ -60,6 +60,32 @@ resource "aws_iam_role_policy" "rds_internal" {
 EOF
 }
 
+resource "aws_iam_role_policy" "rds_sps" {
+  name   = "readrdspassword"
+  role   = aws_iam_role.rds_internal_lambda.id
+  policy = <<EOF
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": "ssm:DescribeParameters",
+            "Resource": "*"
+        },
+        {
+            "Sid": "VisualEditor1",
+            "Effect": "Allow",
+            "Action": [
+              "ssm:GetParameters",
+              "ssm:GetParameter"],
+            "Resource": "arn:aws:ssm:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:parameter/rds/postgres/*"
+        }
+    ]
+}
+EOF
+}
+
 resource "aws_iam_role_policy" "rds_external" {
   name   = "RDSExternalNotifications"
   role   = aws_iam_role.rds_external_lambda.id

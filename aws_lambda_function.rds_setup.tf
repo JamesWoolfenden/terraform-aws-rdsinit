@@ -1,9 +1,7 @@
-
-
 # 'Internal' Lambda function which receives database information from
 # the external function (via SNS) and then connects to the database
 # and evaluates the script against it.
-# 
+#
 # This operates within the VPC, and hence does not have access to the
 # internet or AWS APIs.
 resource "aws_lambda_function" "rds_setup" {
@@ -12,9 +10,10 @@ resource "aws_lambda_function" "rds_setup" {
   filename         = "./rds_setup.zip"
   source_code_hash = data.archive_file.rds_setup_zip.output_base64sha256
 
-  role    = aws_iam_role.rds_internal_lambda.arn
-  runtime = "nodejs12.x"
-  timeout = 10
+  role        = aws_iam_role.rds_internal_lambda.arn
+  runtime     = "nodejs12.x"
+  timeout     = 120
+  memory_size = 512
 
   vpc_config {
     subnet_ids         = var.subnet_ids
@@ -27,9 +26,9 @@ resource "aws_lambda_function" "rds_setup" {
       DB_PASSWORD_PATH   = var.db_password_path
       QUERY_COMMANDS_KEY = tolist(fileset(path.module, "postgres/*.sql"))[0]
       TABLE_NAME         = var.table_name
+      RDS_CERT_KEY       = tolist(fileset(path.module, "postgres/*.pem"))[0]
+      REGION             = data.aws_region.current.name
     }
   }
   tags = var.common_tags
 }
-
-

@@ -6,10 +6,10 @@ resource aws_s3_bucket "postgres" {
 
 resource "aws_s3_bucket_object" "stuff" {
   for_each = fileset(path.module, "postgres/**")
-
-  bucket = aws_s3_bucket.postgres.bucket
-  key    = each.value
-  source = "${path.module}/${each.value}"
+  bucket   = aws_s3_bucket.postgres.bucket
+  key      = each.value
+  source   = "${path.module}/${each.value}"
+  etag     = filemd5("${path.module}/${each.value}")
 }
 
 resource "aws_s3_bucket_public_access_block" "access" {

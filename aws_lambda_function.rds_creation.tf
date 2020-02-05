@@ -1,6 +1,4 @@
 
-
-
 # 'External' Lambda function that gets the new database SNS notification
 # and queries the AWS API to obtain further details about this.
 #

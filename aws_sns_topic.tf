@@ -16,7 +16,6 @@ resource "aws_sns_topic_subscription" "rds" {
   endpoint  = aws_lambda_function.rds_creation.arn
 }
 
-
 resource "aws_sns_topic_subscription" "rds_internal" {
   topic_arn = aws_sns_topic.internal.arn
   protocol  = "lambda"

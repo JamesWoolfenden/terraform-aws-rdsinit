@@ -1,4 +1,3 @@
-
 resource "aws_lambda_permission" "rds_creation" {
   statement_id  = "AllowExecutionFromSNS"
   action        = "lambda:InvokeFunction"
