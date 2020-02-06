@@ -4,7 +4,7 @@ After https://gist.github.com/pat/7b61376981b40cfdbb1166734b8d184f
 
 ## Automatic RDS initiator
 
-This Terraform configuration allows running a set of SQL commands on a new AWS RDS database instance that's operating within an AWS VPC.
+This Terraform configuration allows running of a set of SQL commands on a new AWS RDS database instance that's operating within an AWS VPC.
 
 The commands are executed via AWS Lambda functions - the first (`rds_creation`) operates outside the VPC and connects to the AWS API to determine credential information for the new database (endpoint, port, username, database). It then sends these details via SNS to another function operating _within_ the VPC (`rds_setup`), which connects to the Postgres database and executes the SQL commands.
 
@@ -12,7 +12,7 @@ The initial notification comes via SNS from the RDS events (and there is the con
 
 Please note:
 
-* There are variables defined at the top of the Terraform file - everything else should be pretty self-contained (though you should definitely read through all of the code to ensure you understand it before using it).
+* There are variables with defaults defined - everything else should be pretty self-contained.automatic (though you should definitely read through all of the code to ensure you understand it before using it).
 * The internal Lambda function is expecting a Postgres database. This will need changing if you're going to use MySQL/Aurora/etc.
 * The internal Lambda function connects via SSL, and so requires a local copy of the [AWS SSL Certificate file](https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem) (which I have saved as `rds-cert.pem` within the `rds_setup` directory).
 
@@ -43,6 +43,9 @@ This template uses:
 - SPS
 
 ## Usage
+
+Terrafomrm apply-> and this will monitor DB creation events.
+You can see what happens in the Cloudwatch logs.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Providers
