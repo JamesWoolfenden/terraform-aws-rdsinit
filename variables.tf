@@ -1,13 +1,3 @@
-variable "subnet_ids" {
-  description = "Comma-delimited string of subnet ids"
-  type        = list
-}
-
-variable "security_group_id" {
-  description = "The IDs of security groups"
-  type        = string
-}
-
 variable "common_tags" {
   description = "To implement the common tags scheme"
   type        = map
@@ -15,13 +5,31 @@ variable "common_tags" {
 }
 
 variable "db_password_path" {
-  description = "The path in parameter store than holds the encrypted db password"
+  description = "The path in the parameter store where your encrypted db password can be retrieved"
   type        = string
-  default     = "/rds/postgres/authentic/password"
+  default     = "/rds/postgres/database/password"
 }
 
 variable "table_name" {
   type        = string
-  description = "The name of the database to create all objects in"
-  default     = "authentic"
+  description = "The name of the database to create all objects in, probably want to/change supply this"
+  default     = "data"
+}
+
+variable "sg_tag" {
+  description = "The tag to find your security group for your RDS access, you will most likely need to change/supply this value"
+  type        = set(string)
+  default     = ["RDS"]
+}
+
+variable "subnet_tag" {
+  description = "A Name tag to find your private subnets, you will most likely need to change/supply this value"
+  type        = string
+  default     = "*private*"
+}
+
+variable "vpc_tag" {
+  description = "A Name tag to find your VPC, you will need to supply this value"
+  type        = string
+  default     = "*poc-west2-vpc*"
 }

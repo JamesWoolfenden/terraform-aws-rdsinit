@@ -1,7 +1,12 @@
 resource aws_s3_bucket "postgres" {
   bucket = "postgres-init-${data.aws_caller_identity.current.account_id}"
-  acl    = "private"
-  tags   = var.common_tags
+
+  versioning {
+    enabled = true
+  }
+
+  acl  = "private"
+  tags = var.common_tags
 }
 
 resource "aws_s3_bucket_object" "stuff" {

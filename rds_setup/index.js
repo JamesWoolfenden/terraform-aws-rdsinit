@@ -6,7 +6,7 @@ const { Client } = require("pg");
 const bucketName = process.env.BUCKET; // S3 bucket containing rds-cert and query commands
 const dbPassParamPath = process.env.DB_PASSWORD_PATH; // Parameter store path for the DB password
 const queryCommandsKey = process.env.QUERY_COMMANDS_KEY; // S3 key of query commands
-const tableName = process.env.TABLE_NAME || "authentic";
+const tableName = process.env.TABLE_NAME || "data";
 const rdsCertKey = process.env.RDS_CERT_KEY || "rds-cert.pem";
 const getS3Object = async (bucket, key) => {
   var getParams = {

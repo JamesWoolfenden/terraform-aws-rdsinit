@@ -16,8 +16,8 @@ resource "aws_lambda_function" "rds_setup" {
   memory_size = 512
 
   vpc_config {
-    subnet_ids         = var.subnet_ids
-    security_group_ids = [var.security_group_id]
+    subnet_ids         = tolist(data.aws_subnet_ids.core.ids)
+    security_group_ids = [data.aws_security_group.rds.id]
   }
 
   environment {

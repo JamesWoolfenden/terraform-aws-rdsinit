@@ -45,6 +45,14 @@ This template uses:
 
 ## Usage
 
+<<<<<<< Updated upstream
+Terrafomrm apply-> and this will monitor DB creation events.
+You can see what happens in the Cloudwatch logs.
+=======
+Currently you can use this as is, you'll want to configure the finding of VPC and sub-nets, and add you own sql script.
+If it's useful, be vocal.
+>>>>>>> Stashed changes
+
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Providers
 
@@ -109,18 +117,9 @@ under the License.
 
 ### Contributors
 
-[![James Woolfenden][jameswoolfenden_avatar]][jameswoolfenden_homepage] <br>[![pat][pat_avatar]][pat_homepage]<br>[![michele][michele_avatar]][michele_homepage]
+[![James Woolfenden][jameswoolfenden_avatar]][jameswoolfenden_homepage] <br>[![michele][michele_avatar]][michele_homepage]
 
-[James Woolfenden][jameswoolfenden_homepage] <br> [Pat Allen][pat_homepage] <br> [michele][michele_homepage]
-
-[jameswoolfenden_homepage]: https://github.com/jameswoolfenden
-[jameswoolfenden_avatar]: https://github.com/jameswoolfenden.png?size=150
-
-[pat_homepage]: https://github.com/pat
-[pat_avatar]: https://github.com/pat.png?size=150
-
-[Michele_homepage]:https://github.com/miki79
-[Michele_avatar]: https://github.com/miki79.png?size=150
+[James Woolfenden][jameswoolfenden_homepage] <br>[michele][michele_homepage]
 
 [jameswoolfenden_homepage]: https://github.com/jameswoolfenden
 [jameswoolfenden_avatar]: https://github.com/jameswoolfenden.png?size=150
