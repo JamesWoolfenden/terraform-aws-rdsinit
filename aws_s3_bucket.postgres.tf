@@ -1,5 +1,5 @@
 resource aws_s3_bucket "postgres" {
-    bucket = local.bucket-name
+  bucket = local.bucket-name
 
   versioning {
     enabled = true

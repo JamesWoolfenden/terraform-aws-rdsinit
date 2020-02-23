@@ -40,11 +40,6 @@ repos:
         entry: yamllint
         language: python
         types: [file, yaml]
-  - repo: git://github.com/prettier/prettier
-    rev: 1.19.1
-    hooks:
-      - id: prettier
-        exclude_types: [markdown]
   - repo: git://github.com/jameswoolfenden/pre-commit
     rev: 0.1.17
     hooks:

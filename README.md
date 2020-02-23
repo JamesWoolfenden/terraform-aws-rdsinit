@@ -1,4 +1,5 @@
-# terraform-aws-rdsinit 
+# terraform-aws-rdsinit
+
 [![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-rdsinit.svg)](https://github.com/JamesWoolfenden/terraform-aws-rdsinit/releases/latest)
 
 After https://gist.github.com/pat/7b61376981b40cfdbb1166734b8d184f
@@ -46,13 +47,13 @@ This template uses:
 
 ## Usage
 
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Providers
 
 | Name | Version |
 |------|---------|
 | archive | 1.3 |
-| aws | 2.46 |
+| aws | 2.50 |
 
 ## Inputs
 
