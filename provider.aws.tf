@@ -5,7 +5,7 @@ provider "archive" {
 
 provider "aws" {
   region  = "us-west-2"
-  version = "2.46"
+  version = "2.50"
 }
 
 provider "template" {

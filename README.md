@@ -1,4 +1,5 @@
-# Terraform-aws-rdsinit [![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-rdsinit.svg)](https://github.com/JamesWoolfenden/terraform-aws-rdsinit/releases/latest)
+# terraform-aws-rdsinit 
+[![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-rdsinit.svg)](https://github.com/JamesWoolfenden/terraform-aws-rdsinit/releases/latest)
 
 After https://gist.github.com/pat/7b61376981b40cfdbb1166734b8d184f
 
