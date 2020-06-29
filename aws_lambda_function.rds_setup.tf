@@ -11,7 +11,7 @@ resource "aws_lambda_function" "rds_setup" {
   source_code_hash = data.archive_file.rds_setup_zip.output_base64sha256
 
   role        = aws_iam_role.rds_internal_lambda.arn
-  runtime     = "nodejs12.x"
+  runtime     = var.runtime
   timeout     = 120
   memory_size = 512
 
@@ -30,5 +30,10 @@ resource "aws_lambda_function" "rds_setup" {
       REGION             = data.aws_region.current.name
     }
   }
+
+  tracing_config {
+    mode = "Active"
+  }
+
   tags = var.common_tags
 }

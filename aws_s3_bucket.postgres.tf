@@ -1,8 +1,18 @@
-resource aws_s3_bucket "postgres" {
+resource "aws_s3_bucket" "postgres" {
+  #checkov:skip=CKV_AWS_18: "Ensure the S3 bucket has access logging enabled"
+  #checkov:skip=CKV_AWS_52: "Ensure S3 bucket has MFA delete enabled"
   bucket = local.bucket-name
 
   versioning {
     enabled = true
+  }
+
+  server_side_encryption_configuration {
+    rule {
+      apply_server_side_encryption_by_default {
+        sse_algorithm = var.sse_algorithm
+      }
+    }
   }
 
   acl  = "private"

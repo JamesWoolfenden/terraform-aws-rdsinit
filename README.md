@@ -47,29 +47,8 @@ This template uses:
 
 ## Usage
 
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-## Providers
-
-| Name | Version |
-|------|---------|
-| archive | 1.3 |
-| aws | 2.50 |
-
-## Inputs
-
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:-----:|
-| common\_tags | To implement the common tags scheme | `map` | `{}` | no |
-| db\_password\_path | The path in the parameter store where your encrypted db password can be retrieved | `string` | `"/rds/postgres/database/password"` | no |
-| sg\_tag | The tag to find your security group for your RDS access, you will most likely need to change/supply this value | `set(string)` | <pre>[<br>  "RDS"<br>]<br></pre> | no |
-| subnet\_tag | A Name tag to find your private subnets, you will most likely need to change/supply this value | `string` | `"*private*"` | no |
-| table\_name | The name of the database to create all objects in, probably want to/change supply this | `string` | `"data"` | no |
-| vpc\_tag | A Name tag to find your VPC, you will need to supply this value | `string` | `"*poc-west2-vpc*"` | no |
-
-## Outputs
-
-No output.
-
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+Error: no lines in file
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 Replace **invoke.sql** with your own database script.
@@ -131,9 +110,9 @@ under the License.
 
 [logo]: https://gist.githubusercontent.com/JamesWoolfenden/5c457434351e9fe732ca22b78fdd7d5e/raw/15933294ae2b00f5dba6557d2be88f4b4da21201/slalom-logo.png
 [website]: https://slalom.com
-[github]: https://github.com/jameswoolfenden
+[linkedin]: https://www.linkedin.com/in/jameswoolfenden/
 [linkedin]: https://www.linkedin.com/company/slalom-consulting/
-[twitter]: https://twitter.com/Slalom
+[twitter]: https://twitter.com/JimWoolfenden
 
 [share_twitter]: https://twitter.com/intent/tweet/?text=terraform-aws-rdsinit&url=https://github.com/JamesWoolfenden/terraform-aws-rdsinit
 [share_linkedin]: https://www.linkedin.com/shareArticle?mini=true&title=terraform-aws-rdsinit&url=https://github.com/JamesWoolfenden/terraform-aws-rdsinit

@@ -11,13 +11,17 @@ resource "aws_lambda_function" "rds_creation" {
   source_code_hash = data.archive_file.rds_creation_zip.output_base64sha256
 
   role    = aws_iam_role.rds_external_lambda.arn
-  runtime = "nodejs12.x"
+  runtime = var.runtime
   timeout = 10
 
   environment {
     variables = {
       SNS_TOPIC_ARN = aws_sns_topic.internal.arn
     }
+  }
+
+  tracing_config {
+    mode = "Active"
   }
 
   tags = var.common_tags

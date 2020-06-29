@@ -33,3 +33,14 @@ variable "vpc_tag" {
   type        = string
   default     = "*poc-west2-vpc*"
 }
+
+variable "runtime" {
+  type    = string
+  default = "nodejs12.x"
+}
+
+variable "sse_algorithm" {
+  default     = "aws:kms"
+  type        = string
+  description = "(optional) describe your variable"
+}
