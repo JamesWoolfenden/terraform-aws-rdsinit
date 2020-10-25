@@ -18,6 +18,8 @@ resource "aws_iam_role" "rds_external_lambda" {
   ]
 }
 EOF
+
+  tags = var.common_tags
 }
 
 # IAM Role for 'Internal' lambda which has access to
@@ -39,6 +41,7 @@ resource "aws_iam_role" "rds_internal_lambda" {
   ]
 }
 EOF
+  tags               = var.common_tags
 }
 
 resource "aws_iam_role_policy" "rds_internal" {

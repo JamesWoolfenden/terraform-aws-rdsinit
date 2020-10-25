@@ -31,7 +31,7 @@ variable "subnet_tag" {
 variable "vpc_tag" {
   description = "A Name tag to find your VPC, you will need to supply this value"
   type        = string
-  default     = "*poc-west2-vpc*"
+  default     = "*Default*"
 }
 
 variable "runtime" {
@@ -43,4 +43,9 @@ variable "sse_algorithm" {
   default     = "aws:kms"
   type        = string
   description = "(optional) describe your variable"
+}
+
+variable "region" {
+  type        = string
+  description = "AWS region"
 }

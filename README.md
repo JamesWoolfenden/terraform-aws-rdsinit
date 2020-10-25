@@ -50,35 +50,38 @@ This template uses:
 
 ## Usage
 
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+Set tags to allow tf to find VPC, Subnets and Security groups. Expects a Subnet called RDS to exist.
 
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
-| Name     | Version |
-| -------- | ------- |
-| archive  | ~> 1.3  |
-| aws      | 3.00.0  |
-| template | ~> 2.1  |
+| Name | Version |
+|------|---------|
+| terraform | >= 0.13 |
+| archive | 2.0.0 |
+| aws | 3.12.0 |
+| template | 2.2.0 |
 
 ## Providers
 
-| Name    | Version |
-| ------- | ------- |
-| archive | ~> 1.3  |
-| aws     | 3.00.0  |
+| Name | Version |
+|------|---------|
+| archive | 2.0.0 |
+| aws | 3.12.0 |
 
 ## Inputs
 
-| Name             | Description                                                                                                    | Type          | Default                             | Required |
-| ---------------- | -------------------------------------------------------------------------------------------------------------- | ------------- | ----------------------------------- | :------: |
-| common_tags      | To implement the common tags scheme                                                                            | `map`         | `{}`                                |    no    |
-| db_password_path | The path in the parameter store where your encrypted db password can be retrieved                              | `string`      | `"/rds/postgres/database/password"` |    no    |
-| runtime          | n/a                                                                                                            | `string`      | `"nodejs12.x"`                      |    no    |
-| sg_tag           | The tag to find your security group for your RDS access, you will most likely need to change/supply this value | `set(string)` | <pre>[<br> "RDS"<br>]</pre>         |    no    |
-| sse_algorithm    | (optional) describe your variable                                                                              | `string`      | `"aws:kms"`                         |    no    |
-| subnet_tag       | A Name tag to find your private subnets, you will most likely need to change/supply this value                 | `string`      | `"*private*"`                       |    no    |
-| table_name       | The name of the database to create all objects in, probably want to/change supply this                         | `string`      | `"data"`                            |    no    |
-| vpc_tag          | A Name tag to find your VPC, you will need to supply this value                                                | `string`      | `"*poc-west2-vpc*"`                 |    no    |
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| common\_tags | To implement the common tags scheme | `map` | `{}` | no |
+| db\_password\_path | The path in the parameter store where your encrypted db password can be retrieved | `string` | `"/rds/postgres/database/password"` | no |
+| region | AWS region | `string` | n/a | yes |
+| runtime | n/a | `string` | `"nodejs12.x"` | no |
+| sg\_tag | The tag to find your security group for your RDS access, you will most likely need to change/supply this value | `set(string)` | <pre>[<br>  "RDS"<br>]</pre> | no |
+| sse\_algorithm | (optional) describe your variable | `string` | `"aws:kms"` | no |
+| subnet\_tag | A Name tag to find your private subnets, you will most likely need to change/supply this value | `string` | `"*private*"` | no |
+| table\_name | The name of the database to create all objects in, probably want to/change supply this | `string` | `"data"` | no |
+| vpc\_tag | A Name tag to find your VPC, you will need to supply this value | `string` | `"*Default*"` | no |
 
 ## Outputs
 
