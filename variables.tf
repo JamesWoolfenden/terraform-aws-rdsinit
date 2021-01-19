@@ -1,6 +1,6 @@
 variable "common_tags" {
   description = "To implement the common tags scheme"
-  type        = map
+  type        = map(any)
   default     = {}
 }
 

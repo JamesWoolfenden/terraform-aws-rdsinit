@@ -63,7 +63,7 @@ Set tags to allow tf to find VPC, Subnets and Security groups. Expects a Subnet 
 |------|---------|
 | terraform | >= 0.13 |
 | archive | 2.0.0 |
-| aws | 3.24.1` |
+| aws | 3.24.1 |
 | template | 2.2.0 |
 
 ## Providers
@@ -71,13 +71,13 @@ Set tags to allow tf to find VPC, Subnets and Security groups. Expects a Subnet 
 | Name | Version |
 |------|---------|
 | archive | 2.0.0 |
-| aws | 3.24.1` |
+| aws | 3.24.1 |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| common\_tags | To implement the common tags scheme | `map` | `{}` | no |
+| common\_tags | To implement the common tags scheme | `map(any)` | `{}` | no |
 | db\_password\_path | The path in the parameter store where your encrypted db password can be retrieved | `string` | `"/rds/postgres/database/password"` | no |
 | region | AWS region | `string` | n/a | yes |
 | runtime | n/a | `string` | `"nodejs12.x"` | no |
