@@ -2,8 +2,12 @@
 
 [![Build Status](https://github.com/JamesWoolfenden/terraform-aws-rdsinit/workflows/Verify%20and%20Bump/badge.svg?branch=master)](https://github.com/JamesWoolfenden/terraform-aws-rdsinit)
 [![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-rdsinit.svg)](https://github.com/JamesWoolfenden/terraform-aws-rdsinit/releases/latest)
+[![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/JamesWoolfenden/terraform-aws-rdsinit.svg?label=latest)](https://github.com/JamesWoolfenden/terraform-aws-rdsinit/releases/latest)
+![Terraform Version](https://img.shields.io/badge/tf-%3E%3D0.14.0-blue.svg)
+[![Infrastructure Tests](https://www.bridgecrew.cloud/badges/github/JamesWoolfenden/terraform-aws-rdsinit/cis_aws)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=JamesWoolfenden%2Fterraform-aws-rdsinit&benchmark=CIS+AWS+V1.2)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 [![checkov](https://img.shields.io/badge/checkov-verified-brightgreen)](https://www.checkov.io/)
+[![Infrastructure Tests](https://www.bridgecrew.cloud/badges/github/jameswoolfenden/terraform-aws-rdsinit/general)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=JamesWoolfenden%2Fterraform-aws-rdsinit&benchmark=INFRASTRUCTURE+SECURITY)
 
 After https://gist.github.com/pat/7b61376981b40cfdbb1166734b8d184f
 
@@ -59,7 +63,7 @@ Set tags to allow tf to find VPC, Subnets and Security groups. Expects a Subnet 
 |------|---------|
 | terraform | >= 0.13 |
 | archive | 2.0.0 |
-| aws | 3.12.0 |
+| aws | 3.24.1` |
 | template | 2.2.0 |
 
 ## Providers
@@ -67,7 +71,7 @@ Set tags to allow tf to find VPC, Subnets and Security groups. Expects a Subnet 
 | Name | Version |
 |------|---------|
 | archive | 2.0.0 |
-| aws | 3.12.0 |
+| aws | 3.24.1` |
 
 ## Inputs
 

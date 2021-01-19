@@ -6,3 +6,5 @@
 node_modules/
 package-lock.json
 *.bak
+.terraform.tfstate.lock.info
+.terraform.lock.hcl

@@ -1,6 +1,7 @@
 #!/usr/bin/env pwsh
-
-Remove-Item .terraform -force -Recurse -ErrorAction SilentlyContinue
-terraform init
+$ErrorActionPreference ="Stop"
+Remove-Item .terraform -Recurse -ErrorAction SilentlyContinue
+Remove-Item .terraform.lock.hcl -ErrorAction SilentlyContinue
+terraform init -upgrade
 terraform validate
 terraform fmt
