@@ -14,15 +14,16 @@ jobs:
         with:
           ref: master
           token: ${{ github.token }}
-      - uses: hashicorp/setup-terraform@master
+      - name: "Terraform Init"
+        uses: hashicorp/terraform-github-actions@master
         with:
-          terraform_version: 0.14.5
-      - name: Terraform Init
-        id: init
-        run: terraform init
-      - name: Terraform Validate
-        id: validate
-        run: terraform validate
+          tf_actions_version: 0.14.5
+          tf_actions_subcommand: "init"
+      - name: "Terraform Validate"
+        uses: hashicorp/terraform-github-actions@master
+        with:
+          tf_actions_version: 0.14.5
+          tf_actions_subcommand: "validate"
       - name: Checkov action
         id: checkov
         uses: bridgecrewio/checkov-action@master
