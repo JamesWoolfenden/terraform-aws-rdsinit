@@ -8,34 +8,30 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: [3.8]
 
     steps:
       - uses: actions/checkout@v2
         with:
           ref: master
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v1
+          token: ${{ github.token }}
+      - uses: hashicorp/setup-terraform@master
         with:
-          python-version: ${{ matrix.python-version }}
-      - name: "Terraform Init"
-        uses: hashicorp/terraform-github-actions@master
+          terraform_version: 0.14.5
+      - name: Terraform Init
+        id: init
+        run: terraform init
+      - name: Terraform Validate
+        id: validate
+        run: terraform validate
+      - name: Checkov action
+        id: checkov
+        uses: bridgecrewio/checkov-action@master
         with:
-          tf_actions_version: 0.14.0
-          tf_actions_subcommand: "init"
-      - name: "Terraform Validate"
-        uses: hashicorp/terraform-github-actions@master
-        with:
-          tf_actions_version: 0.14.0
-          tf_actions_subcommand: "validate"
-      - name: Test with Checkov
-        run: |
-          pip install checkov
-          checkov -d .
+          framework: terraform
+
   version:
     name: versioning
+    if: ${{ !env.ACT }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
