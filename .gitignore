@@ -1,10 +1,27 @@
-*.pem
-.terraform/
-*.zip
+# Compiled files
 *.tfstate
-*.backup
-node_modules/
-package-lock.json
+*.tfstate.backup
+*.zip
+.DS_Store
+# Module directory
+.terraform/
+.terraform
+__pycache__/
+.idea
+*.iml
+*.orig
+*.ini
+*~HEAD
+*backup
+tmp
+lambda
+*~HEAD
+*backup
 *.bak
 .terraform.tfstate.lock.info
 .terraform.lock.hcl
+tf.json
+tf.plan
+*.log
+output/*.json
+secrets.auto.tfvars
