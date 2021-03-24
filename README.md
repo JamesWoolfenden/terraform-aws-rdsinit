@@ -73,6 +73,32 @@ Set tags to allow tf to find VPC, Subnets and Security groups. Expects a Subnet 
 | archive | 2.0.0 |
 | aws | 3.24.1 |
 
+## Modules
+
+No Modules.
+
+## Resources
+
+| Name |
+|------|
+| [archive_file](https://registry.terraform.io/providers/hashicorp/archive/2.0.0/docs/data-sources/file) |
+| [aws_caller_identity](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/data-sources/caller_identity) |
+| [aws_db_event_subscription](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/db_event_subscription) |
+| [aws_iam_role](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/iam_role) |
+| [aws_iam_role_policy](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/iam_role_policy) |
+| [aws_iam_role_policy_attachment](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/iam_role_policy_attachment) |
+| [aws_lambda_function](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/lambda_function) |
+| [aws_lambda_permission](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/lambda_permission) |
+| [aws_region](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/data-sources/region) |
+| [aws_s3_bucket](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/s3_bucket) |
+| [aws_s3_bucket_object](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/s3_bucket_object) |
+| [aws_s3_bucket_public_access_block](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/s3_bucket_public_access_block) |
+| [aws_security_group](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/data-sources/security_group) |
+| [aws_sns_topic](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/sns_topic) |
+| [aws_sns_topic_subscription](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/sns_topic_subscription) |
+| [aws_subnet_ids](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/data-sources/subnet_ids) |
+| [aws_vpcs](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/data-sources/vpcs) |
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -90,7 +116,6 @@ Set tags to allow tf to find VPC, Subnets and Security groups. Expects a Subnet 
 ## Outputs
 
 No output.
-
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 Replace **invoke.sql** with your own database script.
