@@ -61,61 +61,70 @@ Set tags to allow tf to find VPC, Subnets and Security groups. Expects a Subnet 
 
 | Name | Version |
 |------|---------|
-| terraform | >= 0.13 |
-| archive | 2.0.0 |
-| aws | 3.24.1 |
-| template | 2.2.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13 |
+| <a name="requirement_archive"></a> [archive](#requirement\_archive) | 2.0.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | 3.24.1 |
+| <a name="requirement_template"></a> [template](#requirement\_template) | 2.2.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| archive | 2.0.0 |
-| aws | 3.24.1 |
+| <a name="provider_archive"></a> [archive](#provider\_archive) | 2.0.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 3.24.1 |
 
 ## Modules
 
-No Modules.
+No modules.
 
 ## Resources
 
-| Name |
-|------|
-| [archive_file](https://registry.terraform.io/providers/hashicorp/archive/2.0.0/docs/data-sources/file) |
-| [aws_caller_identity](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/data-sources/caller_identity) |
-| [aws_db_event_subscription](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/db_event_subscription) |
-| [aws_iam_role](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/iam_role) |
-| [aws_iam_role_policy](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/iam_role_policy) |
-| [aws_iam_role_policy_attachment](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/iam_role_policy_attachment) |
-| [aws_lambda_function](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/lambda_function) |
-| [aws_lambda_permission](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/lambda_permission) |
-| [aws_region](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/data-sources/region) |
-| [aws_s3_bucket](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/s3_bucket) |
-| [aws_s3_bucket_object](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/s3_bucket_object) |
-| [aws_s3_bucket_public_access_block](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/s3_bucket_public_access_block) |
-| [aws_security_group](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/data-sources/security_group) |
-| [aws_sns_topic](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/sns_topic) |
-| [aws_sns_topic_subscription](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/sns_topic_subscription) |
-| [aws_subnet_ids](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/data-sources/subnet_ids) |
-| [aws_vpcs](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/data-sources/vpcs) |
+| Name | Type |
+|------|------|
+| [aws_db_event_subscription.creation](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/db_event_subscription) | resource |
+| [aws_iam_role.rds_external_lambda](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/iam_role) | resource |
+| [aws_iam_role.rds_internal_lambda](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/iam_role) | resource |
+| [aws_iam_role_policy.rds_dump](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/iam_role_policy) | resource |
+| [aws_iam_role_policy.rds_external](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/iam_role_policy) | resource |
+| [aws_iam_role_policy.rds_internal](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/iam_role_policy) | resource |
+| [aws_iam_role_policy.rds_sps](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/iam_role_policy) | resource |
+| [aws_iam_role_policy_attachment.rds_lambda_vpc](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/iam_role_policy_attachment) | resource |
+| [aws_lambda_function.rds_creation](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/lambda_function) | resource |
+| [aws_lambda_function.rds_setup](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/lambda_function) | resource |
+| [aws_lambda_permission.rds_creation](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/lambda_permission) | resource |
+| [aws_lambda_permission.rds_setup](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/lambda_permission) | resource |
+| [aws_s3_bucket.postgres](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/s3_bucket) | resource |
+| [aws_s3_bucket_object.stuff](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/s3_bucket_object) | resource |
+| [aws_s3_bucket_public_access_block.access](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/s3_bucket_public_access_block) | resource |
+| [aws_sns_topic.internal](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/sns_topic) | resource |
+| [aws_sns_topic.rds](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/sns_topic) | resource |
+| [aws_sns_topic_subscription.rds](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/sns_topic_subscription) | resource |
+| [aws_sns_topic_subscription.rds_internal](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/sns_topic_subscription) | resource |
+| [archive_file.rds_creation_zip](https://registry.terraform.io/providers/hashicorp/archive/2.0.0/docs/data-sources/file) | data source |
+| [archive_file.rds_setup_zip](https://registry.terraform.io/providers/hashicorp/archive/2.0.0/docs/data-sources/file) | data source |
+| [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/data-sources/caller_identity) | data source |
+| [aws_region.current](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/data-sources/region) | data source |
+| [aws_security_group.rds](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/data-sources/security_group) | data source |
+| [aws_subnet_ids.core](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/data-sources/subnet_ids) | data source |
+| [aws_vpcs.rds](https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/data-sources/vpcs) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| common\_tags | To implement the common tags scheme | `map(any)` | `{}` | no |
-| db\_password\_path | The path in the parameter store where your encrypted db password can be retrieved | `string` | `"/rds/postgres/database/password"` | no |
-| region | AWS region | `string` | n/a | yes |
-| runtime | n/a | `string` | `"nodejs12.x"` | no |
-| sg\_tag | The tag to find your security group for your RDS access, you will most likely need to change/supply this value | `set(string)` | <pre>[<br>  "RDS"<br>]</pre> | no |
-| sse\_algorithm | (optional) describe your variable | `string` | `"aws:kms"` | no |
-| subnet\_tag | A Name tag to find your private subnets, you will most likely need to change/supply this value | `string` | `"*private*"` | no |
-| table\_name | The name of the database to create all objects in, probably want to/change supply this | `string` | `"data"` | no |
-| vpc\_tag | A Name tag to find your VPC, you will need to supply this value | `string` | `"*Default*"` | no |
+| <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | To implement the common tags scheme | `map(any)` | `{}` | no |
+| <a name="input_db_password_path"></a> [db\_password\_path](#input\_db\_password\_path) | The path in the parameter store where your encrypted db password can be retrieved | `string` | `"/rds/postgres/database/password"` | no |
+| <a name="input_region"></a> [region](#input\_region) | AWS region | `string` | n/a | yes |
+| <a name="input_runtime"></a> [runtime](#input\_runtime) | n/a | `string` | `"nodejs12.x"` | no |
+| <a name="input_sg_tag"></a> [sg\_tag](#input\_sg\_tag) | The tag to find your security group for your RDS access, you will most likely need to change/supply this value | `set(string)` | <pre>[<br>  "RDS"<br>]</pre> | no |
+| <a name="input_sse_algorithm"></a> [sse\_algorithm](#input\_sse\_algorithm) | (optional) describe your variable | `string` | `"aws:kms"` | no |
+| <a name="input_subnet_tag"></a> [subnet\_tag](#input\_subnet\_tag) | A Name tag to find your private subnets, you will most likely need to change/supply this value | `string` | `"*private*"` | no |
+| <a name="input_table_name"></a> [table\_name](#input\_table\_name) | The name of the database to create all objects in, probably want to/change supply this | `string` | `"data"` | no |
+| <a name="input_vpc_tag"></a> [vpc\_tag](#input\_vpc\_tag) | A Name tag to find your VPC, you will need to supply this value | `string` | `"*Default*"` | no |
 
 ## Outputs
 
-No output.
+No outputs.
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 Replace **invoke.sql** with your own database script.
