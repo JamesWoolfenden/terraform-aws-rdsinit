@@ -113,7 +113,7 @@ jobs:
       - name: mkdir
         run: |
           mkdir  tos3
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v4.1.7
         with:
           path: tos3
       - uses: jakejarvis/s3-sync-action@master
