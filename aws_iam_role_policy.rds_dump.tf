@@ -1,4 +1,6 @@
 resource "aws_iam_role_policy" "rds_dump" {
+  # checkov:skip=CKV_AWS_272: Policy requires broad access for this module to function
+  # checkov:skip=CKV_AWS_356: Policy requires broad access for this module to function
   name   = "access-tosql-dump"
   role   = aws_iam_role.rds_internal_lambda.id
   policy = <<EOF
