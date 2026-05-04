@@ -1,4 +1,3 @@
-
 # IAM Role for 'External' lambda which has access to
 # CloudWatch, SNS, and RDS.
 resource "aws_iam_role" "rds_external_lambda" {
@@ -21,7 +20,6 @@ EOF
 
   tags = var.common_tags
 }
-
 # IAM Role for 'Internal' lambda which has access to
 # CloudWatch and VPC behaviour.
 resource "aws_iam_role" "rds_internal_lambda" {
@@ -43,7 +41,6 @@ resource "aws_iam_role" "rds_internal_lambda" {
 EOF
   tags               = var.common_tags
 }
-
 resource "aws_iam_role_policy" "rds_internal" {
   name   = "RDSInternalNotifications"
   role   = aws_iam_role.rds_internal_lambda.id
@@ -62,7 +59,6 @@ resource "aws_iam_role_policy" "rds_internal" {
 }
 EOF
 }
-
 resource "aws_iam_role_policy" "rds_sps" {
   name   = "readrdspassword"
   role   = aws_iam_role.rds_internal_lambda.id
@@ -88,7 +84,6 @@ resource "aws_iam_role_policy" "rds_sps" {
 }
 EOF
 }
-
 resource "aws_iam_role_policy" "rds_external" {
   name   = "RDSExternalNotifications"
   role   = aws_iam_role.rds_external_lambda.id
@@ -109,7 +104,6 @@ resource "aws_iam_role_policy" "rds_external" {
 }
 EOF
 }
-
 resource "aws_iam_role_policy_attachment" "rds_lambda_vpc" {
   role       = aws_iam_role.rds_internal_lambda.id
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"

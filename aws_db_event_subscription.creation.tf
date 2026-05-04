@@ -1,4 +1,3 @@
-
 # Subscribe to all new database creation notifications
 resource "aws_db_event_subscription" "creation" {
   name             = "rds-creation"

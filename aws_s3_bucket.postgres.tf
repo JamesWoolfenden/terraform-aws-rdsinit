@@ -1,4 +1,6 @@
 resource "aws_s3_bucket" "postgres" {
+  # checkov:skip=CKV2_AWS_61: Lifecycle configuration not required for this bucket
+  # checkov:skip=CKV2_AWS_62: Event notifications not required for this bucket
   #checkov:skip=CKV_AWS_18: "Ensure the S3 bucket has access logging enabled"
   #checkov:skip=CKV_AWS_52: "Ensure S3 bucket has MFA delete enabled"
   bucket = local.bucket-name
@@ -18,7 +20,6 @@ resource "aws_s3_bucket" "postgres" {
   acl  = "private"
   tags = var.common_tags
 }
-
 resource "aws_s3_bucket_object" "stuff" {
   for_each = fileset(path.module, "postgres/**")
   bucket   = aws_s3_bucket.postgres.bucket
@@ -26,7 +27,6 @@ resource "aws_s3_bucket_object" "stuff" {
   source   = "${path.module}/${each.value}"
   etag     = filemd5("${path.module}/${each.value}")
 }
-
 resource "aws_s3_bucket_public_access_block" "access" {
   bucket = aws_s3_bucket.postgres.id
 
@@ -35,7 +35,6 @@ resource "aws_s3_bucket_public_access_block" "access" {
   ignore_public_acls      = true
   restrict_public_buckets = true
 }
-
 locals {
   bucket-name = "postgres-init-${data.aws_caller_identity.current.account_id}"
 }
