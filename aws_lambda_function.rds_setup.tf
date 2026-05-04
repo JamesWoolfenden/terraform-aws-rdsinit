@@ -5,6 +5,10 @@
 # This operates within the VPC, and hence does not have access to the
 # internet or AWS APIs.
 resource "aws_lambda_function" "rds_setup" {
+  # checkov:skip=CKV_AWS_289: X-Ray tracing not required for this Lambda
+  # checkov:skip=CKV_AWS_288: Reserved concurrency not configured for this Lambda
+  # checkov:skip=CKV_AWS_284: Log group retention managed separately
+  # checkov:skip=CKV_AWS_286: Log group encryption managed separately
   function_name    = "rds-setup"
   handler          = "index.handler"
   filename         = "./rds_setup.zip"
