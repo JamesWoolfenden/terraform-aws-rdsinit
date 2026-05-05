@@ -147,26 +147,27 @@ resource "aws_iam_policy" "terraform_pike" {
             "Sid": "VisualEditor0",
             "Effect": "Allow",
             "Action": [
-                "SNS:CreateTopic",
-                "SNS:DeleteTopic",
-                "SNS:GetTopicAttributes",
-                "SNS:ListTagsForResource",
-                "SNS:SetTopicAttributes",
-                "SNS:TagResource",
-                "SNS:UnTagResource"
+                "SNS:GetSubscriptionAttributes",
+                "SNS:Subscribe",
+                "SNS:Unsubscribe"
             ],
-            "Resource": "*"
+            "Resource": [
+                "*"
+            ]
         },
         {
             "Sid": "VisualEditor1",
             "Effect": "Allow",
             "Action": [
                 "ec2:DescribeAccountAttributes",
+                "ec2:DescribeNetworkInterfaces",
                 "ec2:DescribeSecurityGroups",
                 "ec2:DescribeSubnets",
                 "ec2:DescribeVpcs"
             ],
-            "Resource": "*"
+            "Resource": [
+                "*"
+            ]
         },
         {
             "Sid": "VisualEditor2",
@@ -184,9 +185,12 @@ resource "aws_iam_policy" "terraform_pike" {
                 "iam:ListRolePolicies",
                 "iam:PassRole",
                 "iam:PutRolePolicy",
-                "iam:TagRole"
+                "iam:TagRole",
+                "iam:UntagRole"
             ],
-            "Resource": "*"
+            "Resource": [
+                "*"
+            ]
         },
         {
             "Sid": "VisualEditor3",
@@ -203,10 +207,27 @@ resource "aws_iam_policy" "terraform_pike" {
                 "lambda:TagResource",
                 "lambda:UntagResource"
             ],
-            "Resource": "*"
+            "Resource": [
+                "*"
+            ]
         },
         {
             "Sid": "VisualEditor4",
+            "Effect": "Allow",
+            "Action": [
+                "rds:AddSourceIdentifierToSubscription",
+                "rds:CreateEventSubscription",
+                "rds:DeleteEventSubscription",
+                "rds:DeleteEventSubscriptions",
+                "rds:ModifyEventSubscription",
+                "rds:RemoveSourceIdentifierFromSubscription"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "VisualEditor5",
             "Effect": "Allow",
             "Action": [
                 "s3:CreateBucket",
@@ -231,9 +252,28 @@ resource "aws_iam_policy" "terraform_pike" {
                 "s3:GetReplicationConfiguration",
                 "s3:ListBucket",
                 "s3:PutBucketPublicAccessBlock",
+                "s3:PutBucketTagging",
                 "s3:PutObject"
             ],
-            "Resource": "*"
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "VisualEditor6",
+            "Effect": "Allow",
+            "Action": [
+                "sns:CreateTopic",
+                "sns:DeleteTopic",
+                "sns:GetTopicAttributes",
+                "sns:ListTagsForResource",
+                "sns:SetTopicAttributes",
+                "sns:TagResource",
+                "sns:UnTagResource"
+            ],
+            "Resource": [
+                "*"
+            ]
         }
     ]
 })
